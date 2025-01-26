@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>မင်းကငပေါကြီးမလား</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        #yes-btn {
+            background-color: #4caf50;
+            color: white;
+        }
+        #no-btn {
+            background-color: #f44336;
+            color: white;
+        }
+        #result {
+            margin-top: 20px;
+            display: none;
+        }
+        #result img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>မင်းကငပေါကြီးမလား?</h1>
+    <button id="yes-btn">ဟုတ်တယ်</button>
+    <button id="no-btn">မဟုတ်ဘူး</button>
+    <div id="result">
+        <p>ဟားဟားဟား ငပေါကြီး!</p>
+        <img src="https://i.imgur.com/lzMzIOv.png" alt="Funny pointing image">
+    </div>
+    <script>
+        const yesBtn = document.getElementById('yes-btn');
+        const noBtn = document.getElementById('no-btn');
+        const resultDiv = document.getElementById('result');
+
+        // "မဟုတ်ဘူး" Button ကို Click လုပ်တဲ့အခါ "ဟုတ်တယ်" Button ရဲ့ Width နဲ့ Height ကို နှစ်ဆ ကြီးစေ
+        noBtn.addEventListener('click', () => {
+            const currentWidth = parseInt(window.getComputedStyle(yesBtn).width);
+            const currentHeight = parseInt(window.getComputedStyle(yesBtn).height);
+            yesBtn.style.width = currentWidth * 2 + 'px';
+            yesBtn.style.height = currentHeight * 2 + 'px';
+        });
+
+        // "ဟုတ်တယ်" Button ကို Click လုပ်တဲ့အခါ
+        yesBtn.addEventListener('click', () => {
+            resultDiv.style.display = 'block';
+            yesBtn.style.display = 'none';
+            noBtn.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
